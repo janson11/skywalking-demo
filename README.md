@@ -100,3 +100,8 @@ Tracer 接口必须实现以下功能：
 
 ## 7 JDK SPI（Service Provider Interface） 机制
 当服务的提供者提供了一种接口的实现之后，需要在 Classpath 下的 META-INF/services/ 目录里创建一个以服务接口命名的文件，此文件记录了该 jar 包提供的服务接口的具体实现类。当某个应用引入了该 jar 包且需要使用该服务时，JDK SPI 机制就可以通过查找这个 jar 包的 META-INF/services/ 中的配置文件来获得具体的实现类名，进行实现类的加载和实例化，最终使用该实现类完成业务功能
+```
+private static final String PREFIX = "META-INF/services/";
+java.util.ServiceLoader.LazyIterator#hasNextService()
+
+```
