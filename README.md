@@ -188,3 +188,50 @@ ElasticSearch 提供了两种 Java Client，分别是 Low Level REST Client 和 
 - High Level REST Client 是基于 Low Level REST Client 实现的，调用方直接使用特定的请求/响应对象即可完成数据的读写，完全屏蔽了底层协议的细节，无需再关心底层的序列化问题。另外， High Level REST Client 提供的 API 都会有同步和异步( async 开头)两个版本，其中同步方法直接返回相应的 response 对象，异步方法需要添加相应的 Listener 来监听并处理返回结果。
 
 SkyWalking 中提供的 ElasticSearchClient 是对 High Level REST Client 的封装。
+
+
+##  13 搭建Skywalking源码环境
+**Skywalking apm**
+```
+git clone git@github.com:apache/skywalking.git
+git checkout -b v8.8.1 v8.8.1
+
+git submodule init
+git submodule update
+```
+导入 IDEA
+
+更新 submodule
+
+全部 Maven 依赖下载完成后，在 SkyWalking 源码根目录中执行如下两条命令，更新 submodule：
+
+```
+ ./mvnw package -Dmaven.test.skip=true -Dcheckstyle.skip=true 
+```
+
+
+需要标记的目录有：
+grpc-java and java folders in apm-protocol/apm-network/target/generated-sources/protobuf
+grpc-java and java folders in oap-server/server-core/target/generated-sources/protobuf
+grpc-java and java folders in oap-server/server-receiver-plugin/receiver-proto/target/generated-sources/fbs
+grpc-java and java folders in oap-server/server-receiver-plugin/receiver-proto/target/generated-sources/protobuf
+grpc-java and java folders in oap-server/exporter/target/generated-sources/protobuf
+grpc-java and java folders in oap-server/server-configuration/grpc-configuration-sync/target/generated-sources/protobuf
+grpc-java and java folders in oap-server/server-alarm-plugin/target/generated-sources/protobuf
+antlr4 folder in oap-server/oal-grammar/target/generated-sources
+
+
+**skywalking-java**
+git clone https://github.com/apache/skywalking-java.git
+cd skywalking-java
+If you clone codes from https://github.com/apache/skywalking-java
+
+`git clone https://github.com/apache/skywalking-java.git
+cd skywalking-java
+./mvnw clean package -Pall -Dmaven.test.skip=true -Dcheckstyle.skip=true`
+
+If you download source codes tar from https://skywalking.apache.org/downloads/
+`./mvnw clean package`
+The agent binary package is generated in skywalking-agent folder.
+
+Set Generated Source Codes(grpc-java and java folders in apm-protocol/apm-network/target/generated-sources/protobuf) folders if you are using IntelliJ IDE.
