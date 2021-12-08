@@ -235,3 +235,13 @@ If you download source codes tar from https://skywalking.apache.org/downloads/
 The agent binary package is generated in skywalking-agent folder.
 
 Set Generated Source Codes(grpc-java and java folders in apm-protocol/apm-network/target/generated-sources/protobuf) folders if you are using IntelliJ IDE.
+
+
+Skywalking Agent微内核架构
+
+微内核架构也被称为插件化架构（Plug-in Architecture），是一种面向功能进行拆分的可扩展性架构。
+
+![](assets/16389555090969.jpg)
+
+
+![](assets/16389602163153.jpg)
