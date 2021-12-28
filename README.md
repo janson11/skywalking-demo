@@ -194,7 +194,7 @@ SkyWalking 中提供的 ElasticSearchClient 是对 High Level REST Client 的封
 **Skywalking apm**
 ```
 git clone git@github.com:apache/skywalking.git
-git checkout -b v8.8.1 v8.8.1
+git checkout -b v8.7.0 v8.7.0
 
 git submodule init
 git submodule update
