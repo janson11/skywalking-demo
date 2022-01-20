@@ -12,7 +12,7 @@
 
 
 GRPCServer:用于接收Skywalking Agent发送的gRPC请求。
-JetttServer:用户从Skywalking Rocketbot界面发起的请求。
+JettyServer:用户从Skywalking Rocketbot界面发起的请求。
 
 
 * Server Core start process
@@ -48,4 +48,7 @@ disadvantages：
 1、针对大流量的应用，查询性能变慢问题
 可以优化基于指定应用生成的索引。
 2、关于UI，时间插件可以显示在上方。
+
+
+### Elasticsearch持久化Skywalking数据流程如下：
 
